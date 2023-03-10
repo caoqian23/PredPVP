@@ -3,11 +3,11 @@ from sklearn.feature_selection import f_classif
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import VarianceThreshold
 
-train_x = np.loadtxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\github\\training_all feature.csv", delimiter=",")
+train_x = np.loadtxt("training_all feature.csv", delimiter=",")
 train_y = [1 for i in range(int(train_x.shape[0] / 2))]  # 250个1
 train_y.extend([0 for i in range(int(train_x.shape[0] / 2))])
 train_y = np.array(train_y)
-#test_x = np.loadtxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\github\\test_all feature.csv", delimiter=",")
+#test_x = np.loadtxt("test_all feature.csv", delimiter=",")
 
 def F_score():
     selector = SelectKBest(f_classif, k=500)
