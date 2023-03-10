@@ -70,15 +70,15 @@ def SelectModel(modelname):
     return model
 
 
-x1=np.loadtxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\model\\training set\\norm\\norm_F_train.csv",delimiter=",")
-x2=np.loadtxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\model\\training set\\norm\\norm_Var_train.csv",delimiter=",")
-x3=np.loadtxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\model\\training set\\norm\\norm_RFECV_train.csv",delimiter=",")
+x1=np.loadtxt("norm_F_train.csv",delimiter=",")
+x2=np.loadtxt("norm_Var_train.csv",delimiter=",")
+x3=np.loadtxt("norm_RFECV_train.csv",delimiter=",")
 y = [1 for i in range(int(x1.shape[0]/2))]  # 250个1
 y.extend([0 for i in range(int(x1.shape[0]/2))])
 y = np.array(y)
-test_x1=np.loadtxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\model\\test set\\norm_test\\norm_F_test.csv",delimiter=",")
-test_x2=np.loadtxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\model\\test set\\norm_test\\norm_Var_test.csv",delimiter=",")
-test_x3=np.loadtxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\model\\test set\\norm_test\\norm_RFECV_test.csv",delimiter=",")
+test_x1=np.loadtxt("norm_F_test.csv",delimiter=",")
+test_x2=np.loadtxt("norm_Var_test.csv",delimiter=",")
+test_x3=np.loadtxt("norm_RFECV_test.csv",delimiter=",")
 modelist = ['KNN', 'RF', 'XGboost', 'GBDT', 'EF', 'LightGBM', 'ANN', 'SVM']
 newtrfeature_list = []
 newtefeature_list = []
@@ -102,10 +102,10 @@ import functools
 newtrfeature = functools.reduce(lambda x,y:np.concatenate((x,y),axis=1),newtrfeature_list)
 newtefeature = functools.reduce(lambda x,y:np.concatenate((x,y),axis=1),newtefeature_list)
 
-#np.savetxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\model\\change5\\newfeature.csv", newfeature, delimiter=",")
-#np.savetxt("D:\\python\\pycharm\\PyCharm Community Edition 2020.3.5\\pythonProject\\model\\change5\\newtestdata.csv", newtestdata, delimiter=",")
+#np.savetxt("newtrfeature.csv", newtrfeature, delimiter=",")
+#np.savetxt("newtefeature.csv", newtefeature, delimiter=",")
 
-testy = [1 for i in range(int(newtefeature.shape[0]/2))]  # 250个1
+testy = [1 for i in range(int(newtefeature.shape[0]/2))]  
 testy.extend([0 for i in range(int(newtefeature.shape[0]/2))])
 testy = np.array(testy)
 
